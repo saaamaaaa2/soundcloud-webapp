@@ -1,29 +1,22 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>SoundCloud Search</title>
+    <title>Test</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
 
-    <h3>Поиск в SoundCloud</h3>
+<button id="btn">SEND TEST</button>
 
-    <input id="query" placeholder="Название песни или исполнитель">
-    <br><br>
-    <button onclick="send()">Найти</button>
-
-    <script>
+<script>
     const tg = window.Telegram.WebApp;
     tg.ready();
 
-    function send() {
-        const text = document.getElementById("query").value;
-        if (!text) return;
-
-        tg.sendData(text);
+    document.getElementById("btn").onclick = () => {
+        tg.sendData("TEST_OK");
         tg.close();
-    }
+    };
 </script>
 
 </body>
