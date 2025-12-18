@@ -14,16 +14,17 @@
     <button onclick="send()">Найти</button>
 
     <script>
-        const tg = window.Telegram.WebApp;
-        tg.ready();
+    const tg = window.Telegram.WebApp;
+    tg.ready();
 
-        function send() {
-            const text = document.getElementById("query").value;
-            if (!text) return;
+    function send() {
+        const text = document.getElementById("query").value;
+        if (!text) return;
 
-            tg.sendData(text);
-        }
-    </script>
+        tg.sendData(text);
+        tg.close();
+    }
+</script>
 
 </body>
 </html>
