@@ -3,59 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>SoundCloud Search</title>
-
-    <!-- Telegram Web App API -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 16px;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-        }
-    </style>
 </head>
 <body>
 
-<h2>SoundCloud поиск</h2>
+    <h3>Поиск в SoundCloud</h3>
 
-<input id="query" placeholder="Введите трек или исполнителя">
-<button onclick="sendQuery()">Найти</button>
+    <input id="query" placeholder="Название песни или исполнитель">
+    <br><br>
+    <button onclick="send()">Найти</button>
 
-<script>
-    const tg = window.Telegram?.WebApp;
-
-    if (tg) {
+    <script>
+        const tg = window.Telegram.WebApp;
         tg.ready();
-        console.log("Telegram WebApp подключён");
-    } else {
-        console.log("Открыто НЕ через Telegram");
-    }
 
-    function sendQuery() {
-        const text = document.getElementById("query").value;
+        function send() {
+            const text = document.getElementById("query").value;
+            if (!text) return;
 
-        if (!text) {
-            alert("Введите запрос");
-            return;
-        }
-
-        if (tg) {
             tg.sendData(text);
-        } else {
-            alert("Это просто сайт. В Telegram данные уйдут боту.");
         }
-    }
-</script>
+    </script>
 
 </body>
 </html>
